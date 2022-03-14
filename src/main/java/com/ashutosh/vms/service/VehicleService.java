@@ -1,5 +1,12 @@
 package com.ashutosh.vms.service;
 
-public class VehicleService {
+import java.util.List;
 
+import com.ashutosh.vms.entity.Vehicle;
+
+public interface VehicleService {
+	List<Vehicle> getAllVehicles();
+	void saveVehicle(Vehicle vehicle);
+	Vehicle getVehicleById(long id);
+	void deleteVehicleById(long id);
 }

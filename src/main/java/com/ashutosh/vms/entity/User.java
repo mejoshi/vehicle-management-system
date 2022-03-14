@@ -14,7 +14,10 @@ public class User {
 	private boolean user_super_permission;
 	private String user_password;
 	private String super_user_code = "1X2B3Y";
-
+	
+	public User() {
+		
+	}
 	
 	
 	public String getsuperUserCode() {

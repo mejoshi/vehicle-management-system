@@ -7,5 +7,5 @@ import com.ashutosh.vms.entity.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long>{
-
+		
 }
