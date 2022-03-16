@@ -11,15 +11,26 @@ public class User {
 	@GeneratedValue
 	private int user_id;
 	private String user_name;
-	private boolean user_super_permission;
 	private String user_password;
-	private String super_user_code = "1X2B3Y";
+	private String super_user_code;
 	
 	public User() {
 		
 	}
 	
 	
+	
+	public String getSuper_user_code() {
+		return super_user_code;
+	}
+
+
+	public void setSuper_user_code(String super_user_code) {
+		this.super_user_code = super_user_code;
+	}
+
+
+
 	public String getsuperUserCode() {
 		return this.super_user_code;
 	}
@@ -30,14 +41,6 @@ public class User {
 
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
-	}
-
-	public boolean isUser_super_permission() {
-		return user_super_permission;
-	}
-
-	public void setUser_super_permission(boolean user_super_permission) {
-		this.user_super_permission = user_super_permission;
 	}
 
 	public String getUser_password() {
@@ -52,10 +55,13 @@ public class User {
 		return user_id;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "User [user_id=" + user_id + ", user_name=" + user_name + ", user_super_permission="
-				+ user_super_permission + ", user_password=" + user_password + "]";
+		return "User [user_id=" + user_id + ", user_name=" + user_name + ", user_password=" + user_password
+				+ ", super_user_code=" + super_user_code + "]";
 	}
+
 
 }
