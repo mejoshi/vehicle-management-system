@@ -1,6 +1,8 @@
 package com.ashutosh.vms.controller;
 
 import java.net.http.HttpRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,27 +19,38 @@ import com.ashutosh.vms.service.UserService;
 
 @Controller
 public class VmsController {
-	
-	final String SU_CODE = "1A2B3C"; 
-	
+
+	final String SU_CODE = "1A2B3C";
+	List<User> userList = new ArrayList<>();
+
 	@Autowired
 	UserService userService;
-	
+
 	@GetMapping("/")
-	public String indexPage(Model model) {
+	public String indexPage(Model model, HttpSession httpSession) {
 		model.addAttribute("user", new User());
 		return "index";
 	}
 
 	@PostMapping("/login")
-	public String adminPage(@ModelAttribute("user") User user){
+	public String adminPage(@ModelAttribute("user") User user) {
 		System.out.println("**********************" + user + "**********************************");
-		if(user.getsuperUserCode().equals(SU_CODE)) {
-			return "admin_home";
-		}else {
-			return "service_advisor_home";
+		userList = userService.getAllUsers();
+
+		for (User user_individual : userList) {
+			
+			if (user_individual.getUser_name().equals(user.getUser_name())) {
+
+				if (user_individual.getsuperUserCode().equals(SU_CODE)) {
+
+					return "admin_home";
+				} else {
+					return "service_advisor_home";
+				}
+			}
 		}
-		
+
+		return "redirect:/";
 	}
 
 	@PostMapping("/register")
