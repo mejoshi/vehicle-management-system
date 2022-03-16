@@ -3,24 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <title>Prime Automation Pvt Ltd</title>
-</head>
-<body>
-	<form th:action="@{/login}" th:object="${user}" method="post">
-		<h1>Login</h1>
-		<input name="username" type="text" placeholder="username" th:field="*{user_name}"> 
-		<input 	name="password" type="text" placeholder="password" th:field="*{user_password}">
-		<input type="submit" value="submit">
-	</form>
-	
-	<form th:action="@{/register}" th:object="${user}" method="post">
-		<h1>Register</h1>
-		<input name="username" type="text" placeholder="username" th:field="*{user_name}"> 
-		<input 	name="password" type="text" placeholder="password" th:field="*{user_password}">
-		<input name="super_user_code" type="text" placeholder="SU Code" th:field="*{super_user_code}">
-		<input type="submit" value="submit">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 
-	</form>
+</head>
+<body style="background-color: #c7c7c7">
 	
-	
+	<nav class="navbar navbar-dark bg-primary">
+ 		 <a class="navbar-brand" href="#">
+    		Prime Automation Pvt. Ltd.
+  </a>
+</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-9">
+				<img alt=""
+					src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2019-honda-civic-sedan-1558453497.jpg?crop=1xw:0.9997727789138833xh;center,top&resize=980:*">
+			</div>
+			
+			<div class="col-sm-3">
+				<div class="row">
+					<div class="col-mg-12">
+						<h1>Login</h1> 
+						<form th:action="@{/login}" th:object="${user}" method="post">
+							<input name="username" type="text" placeholder="username" th:field="*{user_name}"> <br /> <br />
+							<input name="password" type="text" placeholder="password" th:field="*{user_password}"> <br /> <br />
+							<input type="submit" value="submit">
+						</form>
+
+					<hr/>
+
+
+						<form th:action="@{/register}" th:object="${user}" method="post">
+							<h1>Register</h1>
+							<input name="username" type="text" placeholder="username" th:field="*{user_name}"> <br/> <br />
+							<input name="password" type="text" placeholder="password" th:field="*{user_password}"> <br/> <br />
+							<input name="super_user_code" type="text" placeholder="SU Code" th:field="*{super_user_code}"> <br/> <br />
+							<input type="submit" value="submit">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
 </body>
 </html>

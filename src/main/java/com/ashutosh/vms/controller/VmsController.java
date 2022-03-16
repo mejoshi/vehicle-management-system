@@ -27,7 +27,7 @@ public class VmsController {
 	UserService userService;
 
 	@GetMapping("/")
-	public String indexPage(Model model, HttpSession httpSession) {
+	public String indexPage(Model model) {
 		model.addAttribute("user", new User());
 		return "index";
 	}
@@ -38,18 +38,14 @@ public class VmsController {
 		userList = userService.getAllUsers();
 
 		for (User user_individual : userList) {
-			
 			if (user_individual.getUser_name().equals(user.getUser_name())) {
-
 				if (user_individual.getsuperUserCode().equals(SU_CODE)) {
-
 					return "admin_home";
 				} else {
 					return "service_advisor_home";
 				}
 			}
 		}
-
 		return "redirect:/";
 	}
 
@@ -58,6 +54,11 @@ public class VmsController {
 		System.out.println("**********************" + user + "**********************************");
 		userService.saveUser(user);
 		return "redirect:/";
+	}
+	
+	@GetMapping
+	public String invokeAddCustomer() {
+		return "add_customer";
 	}
 
 }
