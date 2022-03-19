@@ -9,17 +9,17 @@ public class Services {
 
 	@Id
 	@GeneratedValue
-	int service_id;
-	int service_charge;
+	Long service_id;
+	Long service_charge;
 	String service_type;
 	String service_description;
 
 	
-	public int getService_charge() {
+	public Long getService_charge() {
 		return service_charge;
 	}
 
-	public void setService_charge(int service_charge) {
+	public void setService_charge(Long service_charge) {
 		this.service_charge = service_charge;
 	}
 
@@ -39,7 +39,7 @@ public class Services {
 		this.service_description = service_description;
 	}
 
-	public int getService_id() {
+	public Long getService_id() {
 		return service_id;
 	}
 

@@ -16,9 +16,10 @@
     		Prime Automation Pvt. Ltd.
   </a>
   			<form class="form-inline">
-   				 	<a th:href="@{add_customer.html}" class="form-control mr-sm-2 btn-success" >Add Cutomer</a>
-					<a href="/invokeAddService" class="form-control mr-sm-2 btn-success">Add Services</a>
-					<a href="/logout" class="form-control mr-sm-2 btn-warning">Logout</a>
+   				 	<a th:href="@{add_customer}" class="form-control mr-sm-2 btn-success" >Add Cutomer</a>
+					<a th:href="@{add_services}" class="form-control mr-sm-2 btn-success">Add Services</a>
+					<a th:href="@{add_services}" class="form-control mr-sm-2 btn-warning">Control</a>
+					<a href="/logout" class="form-control mr-sm-2 btn-danger">Logout</a>
  		 </form>
 		</nav>
 		
@@ -27,10 +28,10 @@
 		<div class="container">
 			<table class="table table-stripped">
 			<thead>
-			<tr>
+			<tr >
 				<th>vehicle_id</th>
-				<th>vehicle_type</th>
-				<th>customer_name</th>
+			s	<th>vehicle_type</th>
+				<th >customer_name</th>
 				<th>vehicle_number</th>
 				<th>service_Advisor</th>
 				<th>vehicle_service_list</th>
@@ -40,10 +41,10 @@
 			<thead>
 			
 			<tbody>
-				<tr>
-					<td>101</td>
+				<tr th:each="customer : ${customer}">
+					<td >101</td>
 					<td>four wheel</td>
-					<td>Ashutosh</td>
+					<td th:text="${customer.customer_name}">Ashutosh</td>
 					<td>fuel filter, servicing</td>
 					<td>Ram laal</td>
 					<td>MH 4405</td>

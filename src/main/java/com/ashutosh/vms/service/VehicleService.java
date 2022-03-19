@@ -7,6 +7,6 @@ import com.ashutosh.vms.entity.Vehicle;
 public interface VehicleService {
 	List<Vehicle> getAllVehicles();
 	void saveVehicle(Vehicle vehicle);
-	Vehicle getVehicleById(long id);
-	void deleteVehicleById(long id);
+	Vehicle getVehicleById(Long id);
+	void deleteVehicleById(Long id);
 }

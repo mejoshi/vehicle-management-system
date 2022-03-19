@@ -1,23 +1,17 @@
 package com.ashutosh.vms.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.TableGenerator;
 
 @Entity
 public class Vehicle{
 
 	@Id
 	@GeneratedValue
-	int vehicle_id;
+	Long vehicle_id;
 	String vehicle_number;
 	String vehicle_type;
 	
@@ -53,7 +47,7 @@ public class Vehicle{
 		this.vehicle_desciption = vehicle_desciption;
 	}
 
-	public int getVehicle_id() {
+	public Long getVehicle_id() {
 		return vehicle_id;
 	}
 

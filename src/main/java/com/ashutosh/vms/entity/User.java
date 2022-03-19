@@ -9,7 +9,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue
-	private int user_id;
+	private Long user_id;
 	private String user_name;
 	private String user_password;
 	private String super_user_code;
@@ -51,7 +51,7 @@ public class User {
 		this.user_password = user_password;
 	}
 
-	public int getUser_id() {
+	public Long getUser_id() {
 		return user_id;
 	}
 

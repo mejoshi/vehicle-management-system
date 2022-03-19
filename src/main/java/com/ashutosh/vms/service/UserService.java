@@ -7,6 +7,6 @@ import com.ashutosh.vms.entity.User;
 public interface UserService {
 	List<User> getAllUsers();
 	void saveUser(User services);
-	User getUserById(long id);
-	void deleteUserById(long id);
+	User getUserById(Long id);
+	void deleteUserById(Long id);
 }

@@ -27,7 +27,7 @@ public class UserImplementation implements UserService{
 	}
 
 	@Override
-	public User getUserById(long id) {
+	public User getUserById(Long id) {
 		Optional<User> findById = userRepository.findById(id);
 		User user = null;
 		if(findById.isPresent()) {
@@ -39,7 +39,7 @@ public class UserImplementation implements UserService{
 	}
 
 	@Override
-	public void deleteUserById(long id) {
+	public void deleteUserById(Long id) {
 		userRepository.deleteById(id);
 		
 	}

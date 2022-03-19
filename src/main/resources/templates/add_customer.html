@@ -1,10 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Add Customer</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 </head>
 <body>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-mg-6">
+				<center><h1>Add Customer</h1></center>
+				<form th:action="@{/customer_added}" th:object="${customer}" method="post">
+			<input name="customer_name" type="text" placeholder="customer_name" th:field="*{customer_name}"> <br /> <br />
+			<input name="customer_email_id" type="text" placeholder="customer_email_id" th:field="*{customer_email_id}"> <br /> <br />
+			<input name="customer_phone_number" type="text" placeholder="customer_phone_number" th:field="*{customer_phone_number}"> <br /> <br />
+			<input type="submit" value="submit">
+		</form>
+
+				</div>
+				
+				<div class="col-mg-6">
+					<center><h1>Add Vehicle</h1></center>
+				<form th:action="@{/vehicle_added}" th:object="${vehicle}" method="post">
+			<input name="vehicle_number" type="text" placeholder="customer_name" th:field="*{vehicle_number}"> <br /> <br />
+			<input name="vehicle_type" type="text" placeholder="customer_email_id" th:field="*{vehicle_type}"> <br /> <br />
+			<input name="vehicle_customer_id" type="text" placeholder="customer_phone_number" field="*{vehicle.customer_id}"> <br /> <br />
+			<input name="vehicle_description" type="text" placeholder="customer_name" th:field="*{vehicle_desciption}"> <br /> <br />
+			<input type="submit" value="submit">
+			
+			</form>
+				</div>
+	
+			</div>
+			<div class="container">
+			<br>
+								<h1>Data</h1>
+			<br>
+				<div class="row">
+					<div class="col-lg-6">
+					
+						<table class="table table-stripped">
+			<thead>
+			<tr>
+				<th>Customer Id</th>
+				<th>Customer Name</th>
+				<th>Customer Email ID</th>
+				<th>Customer Phone Number</th>
+				
+			</tr>
+			<thead>
+			
+			<tbody>
+				<tr th:each="customer : ${customerList}">
+				<td th:text="${customer.customer_id}"></td>
+				<td th:text="${customer.customer_name}"></td>
+				<td th:text="${customer.customer_email_id}"></td>
+				<td th:text="${customer.customer_phone_number}"></td>
+				</tr>
+			</tbody>
+		</table>
+					
+					</div>
+					<div class="col-lg-6">
+					<table class="table table-stripped">
+			<thead>
+			<tr>
+				<th>Vehicle ID</th>
+				<th>Vehicle Type</th>
+				<th>Vehicle Descripton</th>
+				<th>Vehicle Number</th>
+			</tr>
+			<thead>
+			
+			<tbody>
+				<tr th:each="vehicle : ${vehicleList}">
+					<td th:text="${vehicle.vehicle_id}"></td>
+					<td th:text="${vehicle.vehicle_number}"></td>
+					<td th:text="${vehicle.vehicle_type}"></td>
+					<td th:text="${vehicle.vehicle_desciption}"></td>
+				</tr>
+			</tbody>
+		</table>
+					</div>
+				</div>
+			</div>
+				
+			
+
+		</div>
+		
+		
+		
+		
+
+		
 		
 </body>
 </html>

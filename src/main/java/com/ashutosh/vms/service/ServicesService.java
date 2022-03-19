@@ -8,6 +8,6 @@ import com.ashutosh.vms.entity.Services;
 public interface ServicesService {
 	List<Services> getAllServices();
 	void saveServices(Services services);
-	Services getServicesById(long id);
-	void deleteServicesById(long id);
+	Services getServicesById(Long id);
+	void deleteServicesById(Long id);
 }

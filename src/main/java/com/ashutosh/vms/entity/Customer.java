@@ -10,7 +10,7 @@ public class Customer {
 	
 	@Id
 	@GeneratedValue
-	int customer_id;
+	Long customer_id;
 	String customer_name;
 	String customer_email_id;
 	String customer_phone_number;
@@ -40,7 +40,7 @@ public class Customer {
 		this.customer_phone_number = customer_phone_number;
 	}
 
-	public int getCustomer_id() {
+	public Long getCustomer_id() {
 		return customer_id;
 	}
 
