@@ -3,24 +3,26 @@ package com.ashutosh.vms.repository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ashutosh.vms.entity.Services;
 import com.ashutosh.vms.service.ServicesService;
 
+@Service
 public class ServicesImplementation implements ServicesService{
 
-
+	@Autowired
+	ServicesRepository servicesRepository;
 	
 	@Override
 	public List<Services> getAllServices() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return servicesRepository.findAll();
 	}
 
 	@Override
 	public void saveServices(Services services) {
-		
-		
+			servicesRepository.save(services);
 	}
 
 	@Override

@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ashutosh.vms.entity.Customer;
+import com.ashutosh.vms.entity.Services;
 import com.ashutosh.vms.entity.User;
 import com.ashutosh.vms.entity.Vehicle;
 import com.ashutosh.vms.service.CustomerService;
+import com.ashutosh.vms.service.ServicesService;
 import com.ashutosh.vms.service.UserService;
 import com.ashutosh.vms.service.VehicleService;
 
@@ -29,10 +31,14 @@ public class VmsController {
 	List<User> userList = new ArrayList<>();
 	List<Customer> customerList = new ArrayList<>();
 	List<Vehicle> vehicleList = new ArrayList<>();
+	List<Services> servicesList = new ArrayList<>();
 
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	ServicesService servicesService;
 	
 	@Autowired
 	CustomerService customerService;
@@ -53,14 +59,17 @@ public class VmsController {
 		userList = userService.getAllUsers();
 		customerList = customerService.getAllCustomers();
 		vehicleList = vehicleService.getAllVehicles();
+		servicesList = servicesService.getAllServices();
 		
 		model.addAttribute("users",userList);
 		model.addAttribute("customer",customerList);
 		model.addAttribute("vehicle",vehicleList);
-
+		model.addAttribute("service",servicesList);
+		
 		
 			for (User user_individual : userList) {
 				if (user_individual.getUser_name().equals(user.getUser_name())) {
+					model.addAttribute("user_name",user_individual.getUser_name());
 					if (user_individual.getsuperUserCode().equals(SU_CODE)) {
 						return "admin_home";
 					} else {
@@ -107,7 +116,15 @@ public class VmsController {
 	
 	
 	@GetMapping("/add_services")
-	public String invokeAddServices() {
+	public String invokeAddServices(Model model) {
+		model.addAttribute("service",new Services());
+		return "add_services";
+	}
+	
+	@PostMapping("/service_added")
+	public String serviceAdded(@ModelAttribute("service") Services service) {
+		System.out.println(service);
+		servicesService.saveServices(service);
 		return "add_services";
 	}
 

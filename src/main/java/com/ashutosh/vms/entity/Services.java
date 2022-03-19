@@ -10,6 +10,7 @@ public class Services {
 	@Id
 	@GeneratedValue
 	Long service_id;
+	
 	Long service_charge;
 	String service_type;
 	String service_description;

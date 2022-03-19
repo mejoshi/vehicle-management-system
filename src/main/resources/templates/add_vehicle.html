@@ -22,7 +22,7 @@
           <ul class="navbar-nav mr-auto">
           </ul>
           <span class="navbar-text">
-           ${user_name}
+           user_name
            <button href="#" type="button" class="btn btn-danger" style="color:'white'">Logout</button>
           </span>
         </div>
@@ -36,20 +36,19 @@
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
         <a
-          th:href="@{login}"
+          href="#"
           class="list-group-item list-group-item-action py-2 ripple "
           aria-current="true"
         >
           <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
         </a>
-        <a th:href="@{add_customer}" class="list-group-item list-group-item-action py-2 ripple active">
+        <a th:href="@{add_customer}" class="list-group-item list-group-item-action py-2 ripple">
           <i class="fas fa-chart-area fa-fw me-3"></i><span>Add Customers</span>
         </a>
-
         <a th:href="@{add_services}" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>Add Services</span></a
         >
-        <a th:href="@{add_vehicle}" class="list-group-item list-group-item-action py-2 ripple">
+        <a th:href="@{add_vehicle}" class="list-group-item list-group-item-action py-2 ripple active">
           <i class="fas fa-chart-pie fa-fw me-3"></i><span>Add Vehicles</span>
         </a>
       </div>
@@ -58,19 +57,29 @@
                </div>
 
                <div class="col-mg-10" style="margin: 20px 0px 0px 20px;">
-                    <h1>Add Customers</h1>
-                    <form th:action="@{/customer_added}" th:object="${customer}" method="post">
-                        <div class="form-group">
-                          <input type="text" class="form-control"  placeholder="Enter name"  th:field="*{customer_name}">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" class="form-control"  placeholder="Enter Phone Numnber"  th:field="*{customer_email_id}">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter Email Id" th:field="*{customer_phone_number}">
-                          </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </form>
+                <h1>Add Vehicle</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="cars">Customer name :</label>
+                                    <select class="form-select form-select-lg mb-3" selected>
+                                    <option value="volvo">Harry</option>
+                                    <option value="saab">Naveen</option>
+                                    <option value="opel">Param</option>
+                                    <option value="audi">Sidhuu</option>
+                                    </select>
+                      </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control"  placeholder="Enter Vehicle Number">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control"  placeholder="Enter Vehicle Type">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Vehicle Description">
+                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+
                </div>
 
            </div>
