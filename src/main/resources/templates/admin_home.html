@@ -44,12 +44,8 @@
         <a th:href="@{add_customer}" class="list-group-item list-group-item-action py-2 ripple">
           <i class="fas fa-chart-area fa-fw me-3"></i><span>Add Customers</span>
         </a>
-        <a th:href="@{add_services}" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-line fa-fw me-3"></i><span>Add Services</span></a
-        >
-        <a th:href="@{add_vehicle}" class="list-group-item list-group-item-action py-2 ripple">
-          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Add Vehicles</span>
-        </a>
+        <a th:href="@{add_services}" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Add Services</span></a>
+        <a th:href="@{add_vehicles}" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Add Vehicles</span></a>
       </div>
     </div>
   </nav>
@@ -67,6 +63,7 @@
                         <th>vehicle status</th>
                         <th>Vehicle desc</th>
                         <th>vehicle type</th>
+                        <th>Customer ID</th>
                       </tr>
                       <thead>
                       
@@ -77,6 +74,8 @@
                           <td th:text="${vehicle.vehicle_service_status}"></td>
                           <td th:text="${vehicle.vehicle_desciption}"></td>
                           <td th:text="${vehicle.vehicle_type}"></td>
+                          <td th:text="${vehicle.customer.customer_id}"></td>
+                          
                         </tr>
                       </tbody>
                     </table>

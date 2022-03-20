@@ -108,16 +108,25 @@ public class VmsController {
 	}
 	
 	@PostMapping("/vehicle_added")
-	public String vehicleAdded(@ModelAttribute("vehicle") Vehicle vehicle) {
+	public String vehicleAdded(@ModelAttribute("vehicles") Vehicle vehicle) {
 		System.out.println(vehicle);
 		vehicleService.saveVehicle(vehicle);
 		return "add_customer";
 	}
 	
+	@GetMapping("/add_vehicles")
+	public String invokeAddVehicles(Model model) {
+		model.addAttribute("customers",customerList);
+		model.addAttribute("vehicle",new Vehicle());
+		model.addAttribute("vehicles",vehicleList);
+
+		return "add_vehicles";
+	}
 	
 	@GetMapping("/add_services")
 	public String invokeAddServices(Model model) {
 		model.addAttribute("service",new Services());
+		model.addAttribute("services",servicesList);
 		return "add_services";
 	}
 	

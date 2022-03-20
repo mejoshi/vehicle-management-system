@@ -1,5 +1,6 @@
 package com.ashutosh.vms.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,10 +16,18 @@ public class Vehicle{
 	String vehicle_number;
 	String vehicle_type;
 	
-	@ManyToOne
-	@JoinColumn(name="customer_id")
-	Customer customer;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="customer_id", referencedColumnName = "customer_id")
+	public Customer customer;
 	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
 	String vehicle_desciption;
 	String vehicle_service_status;
 
